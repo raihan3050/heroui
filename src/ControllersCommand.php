@@ -40,10 +40,6 @@ class ControllersCommand extends Command
      */
     public function handle()
     {
-        if (! is_dir($directory = app_path('Helpers'))) {
-            mkdir($directory, 0755, true);
-        }
-        copy(__DIR__.'/../stubs/Helpers/helpers.php', app_path('Helpers/helpers.php'));
 
         if (! is_dir($directory = app_path('Http/Controllers/Auth'))) {
             mkdir($directory, 0755, true);

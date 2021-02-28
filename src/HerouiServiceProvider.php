@@ -14,6 +14,11 @@ class HerouiServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        if (! is_dir($directory = app_path('Helpers'))) {
+            mkdir($directory, 0755, true);
+        }
+        copy(__DIR__.'/../stubs/Helpers/helpers.php', app_path('Helpers/helpers.php'));
+
         if ($this->app->runningInConsole()) {
             $this->commands([
                 AuthCommand::class,
