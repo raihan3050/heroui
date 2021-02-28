@@ -1,0 +1,16 @@
+@extends('layouts/contentLayoutMaster')
+
+@section('title', 'Layout Boxed')
+
+
+@section('content')
+<div class="row">
+  <div class="col-12">
+    <div class="alert alert-primary" role="alert">
+      <div class="alert-body">
+        <strong>Info:</strong> This is info!
+      </div>
+    </div>
+  </div>
+</div>
+@endsection

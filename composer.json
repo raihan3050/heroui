@@ -1,0 +1,38 @@
+{
+    "name": "deshiserver/heroui",
+    "description": "This is Hero UI",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^7.3|^8.0",
+        "illuminate/console": "^8.0",
+        "illuminate/filesystem": "^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "authors": [
+        {
+            "name": "DeshiServer",
+            "email": "deshiserver@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Deshiserver\\Heroui\\": "src/",
+            "Illuminate\\Foundation\\Auth\\": "auth-backend/"
+        },
+        "files": [
+            "app/Helpers/helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Deshiserver\\Heroui\\HerouiServiceProvider"
+            ],
+            "aliases": {
+                "Helper": "App\\Helpers\\Helper"
+            }
+        }
+    },
+    "minimum-stability": "dev"
+}

@@ -1,0 +1,15 @@
+@extends('layouts/contentLayoutMaster')
+
+@section('title', 'Layout without menu')
+
+@section('content')
+<div class="row">
+  <div class="col-12">
+    <div class="alert alert-primary" role="alert">
+      <div class="alert-body">
+        <strong>Info:</strong> This is Layout without menu
+      </div>
+    </div>
+  </div>
+</div>
+@endsection
