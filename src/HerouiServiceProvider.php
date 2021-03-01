@@ -41,7 +41,7 @@ class HerouiServiceProvider extends ServiceProvider
         }
         if($can_replace_composer_file==1){
             $composer_array['autoload']['files'] = $autoload['files'];
-            $composer_string = json_encode($composer_array, JSON_PRETTY_PRINT);
+            $composer_string = json_encode($composer_array, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
             file_put_contents(__DIR__.'\composer.php', $composer_string);
             copy(__DIR__.'\composer.php', base_path('composer.json'));
         }
