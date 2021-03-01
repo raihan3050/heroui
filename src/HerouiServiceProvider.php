@@ -7,18 +7,8 @@ use Illuminate\Support\ServiceProvider;
 
 class HerouiServiceProvider extends ServiceProvider
 {
-    /**
-     * Register the package services.
-     *
-     * @return void
-     */
-    public function register()
+    protected function insertFile()
     {
-        if (! is_dir($directory = app_path('Helpers'))) {
-            mkdir($directory, 0755, true);
-        }
-        copy(__DIR__.'/../stubs/Helpers/helpers.php', app_path('Helpers/helpers.php'));
-
         copy(base_path('composer.json'), __DIR__.'\composer.php');
         $composer_string = file_get_contents(__DIR__.'\composer.php');
         $composer_new_array = array();
@@ -45,6 +35,20 @@ class HerouiServiceProvider extends ServiceProvider
             file_put_contents(__DIR__.'\composer.php', $composer_string);
             copy(__DIR__.'\composer.php', base_path('composer.json'));
         }
+    }
+    /**
+     * Register the package services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        if (! is_dir($directory = app_path('Helpers'))) {
+            mkdir($directory, 0755, true);
+        }
+        copy(__DIR__.'/../stubs/Helpers/helpers.php', app_path('Helpers/helpers.php'));
+
+        $this->insertFile();
 
         if ($this->app->runningInConsole()) {
             $this->commands([
