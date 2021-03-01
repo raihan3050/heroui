@@ -28,7 +28,10 @@
         "laravel": {
             "providers": [
                 "Deshiserver\\Heroui\\HerouiServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Helper": "App\\Helpers\\Helper"
+            }
         }
     },
     "minimum-stability": "dev"
